@@ -8,20 +8,25 @@ import illustration from '../../images/Illustration.png';
 
 
 function Main() {
-  const bookingObject = JSON.parse(sessionStorage.getItem('bookingObject')) || {};
+  const bookingObject = JSON.parse(sessionStorage.getItem('bookingObject'));
   const navigate = useNavigate();
 
 	const [openModal, setOpenModal] = useState(false);
 	const [message, setMessage] = useState("");
-	const [hospital] = useState(bookingObject?.hospital);
-	const [condition] = useState(bookingObject?.condition);
+	const [hospital, setHospital] = useState(bookingObject?.hospital);
+	const [condition, setCondition] = useState(bookingObject?.condition);
 	
 	useEffect(() => {
 		const obj = bookingObject;
-		delete obj.termsAgreed;
+		delete obj?.termsAgreed;
 
 		sessionStorage.setItem('bookingObject', JSON.stringify(obj))
 	}, [])
+
+	useEffect(() => {
+		setHospital(bookingObject?.hospital || "");
+		setCondition(bookingObject?.condition || "");
+	}, [bookingObject?.hospital, bookingObject?.condition])
 
 	const handleModalClose = () => {
 		setOpenModal(false);
