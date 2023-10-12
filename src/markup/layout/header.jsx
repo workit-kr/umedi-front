@@ -18,10 +18,6 @@ const Header = () => {
 	const [isMobileView, setIsMobileView] = useState(false);
 	const [showBackButton, setShowBackButton] = useState(true);
 
-	useEffect(() => {
-		sessionStorage.setItem('bookingObject', {})
-	}, [])
-
 	const toggleSubmenu = (item) => {
 		setActiveItem(item === activeItem ? null : item);
 	};
@@ -71,7 +67,7 @@ const Header = () => {
 	}, []);
 
 	const resetData = () => {
-    sessionStorage.setItem('bookingObject', null);
+		sessionStorage.setItem('bookingObject', JSON.stringify({}));
 	}
 
 	const goBack = () => {

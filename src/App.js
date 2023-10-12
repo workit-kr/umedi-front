@@ -14,6 +14,8 @@ import "./vendor/themify/themify-icons.css";
 import './App.scss';
 
 function App() {
+  sessionStorage.setItem('bookingObject', JSON.stringify({}));
+
 	return (
 		<div className="page-wraper">
 			<Markup />
