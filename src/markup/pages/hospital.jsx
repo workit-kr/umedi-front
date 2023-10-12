@@ -250,7 +250,7 @@ function Hospital(){
 																<div className="hospital-info-content">
 																	<span className="title">{hospital.name}</span>
 																	<span className="text-secondary">{hospital?.speciality1_name} {hospital?.speciality2_name ? `| ${hospital?.speciality2_name }` : ''}</span>
-																	<span className="text-secondary">{hospital?.city} | {hospital?.region}</span>
+																	<span className="text-secondary">{hospital?.city}</span>
 																</div>
 															</div>
 														</div>
