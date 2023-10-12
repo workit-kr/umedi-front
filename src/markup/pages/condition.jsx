@@ -91,7 +91,24 @@ function Condition(){
 										variant="outlined"
 										fullWidth
 										sx={{
-											padding: '5px 15px 15px'
+											padding: '5px 15px 15px',
+											borderColor: "#006EB7",
+											"&.MuiTextField-root": {
+												"&:hover fieldset": {
+													borderColor: "#006EB7",
+												},
+												"&.Mui-focused fieldset": {
+													borderColor: "#006EB7",
+												},
+											},
+											"& .MuiOutlinedInput-root": {
+												"&:hover fieldset": {
+													borderColor: "#006EB7",
+												},
+												"&.Mui-focused fieldset": {
+													borderColor: "#006EB7",
+												},
+											},
 										}}
 										placeholder="Condition, Procedure, Doctor.."
 										InputProps={{

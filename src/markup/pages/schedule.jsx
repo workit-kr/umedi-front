@@ -35,7 +35,7 @@ const SLOTS = [
 ];
 
 function Schedule(){
-  const bookingObject = JSON.parse(sessionStorage.getItem('bookingObject') || null);
+  const bookingObject = JSON.parse(sessionStorage.getItem('bookingObject'));
   const [value, setValue] = useState(dayjs(new Date()));
 	const [selectedDate, setSelectedDate] = useState("");
 	const [selectedSlot, setSelectedSlot] = useState("");
@@ -166,10 +166,10 @@ function Schedule(){
 																			sx={{ 
 																				cursor: 'pointer',
 																				'&.MuiChip-outlinedDefault': {
-																					border: '1px solid #565acf !important',
+																					border: '1px solid #006EB7 !important',
 																				},
 																				'&.MuiChip-fillDefault': {
-																					backgroundColor: '#565acf !important',
+																					backgroundColor: '#006EB7 !important',
 																					color: '#fff'
 																				}
 																			}} 
@@ -191,10 +191,10 @@ function Schedule(){
 																				sx={{ 
 																					cursor: 'pointer',
 																					'&.MuiChip-outlinedDefault': {
-																						border: '1px solid #565acf !important',
+																						border: '1px solid #006EB7 !important',
 																					},
 																					'&.MuiChip-fillDefault': {
-																						backgroundColor: '#565acf !important',
+																						backgroundColor: '#006EB7 !important',
 																						color: '#fff'
 																					}
 																				}} 
