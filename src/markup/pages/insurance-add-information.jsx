@@ -20,6 +20,11 @@ function Information() {
 
 	const handleNext = () => {
 
+		if (!isEmailValid()) {
+			alert('Please enter a valid email address');
+			return;
+		}
+
 		sessionStorage.setItem('bookingObject', 
 			JSON.stringify(
 			{
@@ -33,6 +38,11 @@ function Information() {
 			}
 		))
 		navigate("/complete");
+	}
+
+	const isEmailValid = () => {
+		const matchedEmail = String(email).toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+		return !!matchedEmail;
 	}
 
 	const onFileChange = (event) => {
