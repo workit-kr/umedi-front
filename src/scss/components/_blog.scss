@@ -149,8 +149,8 @@
 		}
 	}
 }
-.list {
-	max-height: 550px;
+.list {    
+	max-height: calc(100vh - 350px);
 	overflow-y: auto;
 }
 .loading-wrap {

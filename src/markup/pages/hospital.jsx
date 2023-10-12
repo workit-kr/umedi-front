@@ -28,51 +28,39 @@ function Hospital(){
 	const [selectedLocation, setSelectedLocation] = useState("");
 	const [isMatched, setIsMatched] = useState(true);	
 	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState(null);
 
 	useEffect(() => {
-		setLoading(true);
-
-    axios.get(
-		`/hospital`,
-		{
-			baseURL: REACT_APP_UMEDI_URL,
-			headers: {
-				'X-Api-Key': REACT_APP_UMEDI_ACCESS_TOKEN
-			}
-		},
-	).then(({data}) => {
-		setLoading(false);
-		setHospitalList(data);
-
-		if (params?.condition) {
-			setFilteredHospitalList(data.filter(hospital => hospital.speciality_1 === params?.condition || hospital?.speciality_2 === params?.condition));
-		} else {
-			setFilteredHospitalList(data);
-		}
-	})
-	}, []);
+		fetchHospitalList();
+	}, [condition, selectedLocation]);
 
 	const fetchHospitalList = () => {
-		// condition 이 있는 경우
-		// condition이 없고 city 만 있는 경우 
-		// city 가 있는 경우 
+		setLoading(true);
+		const strippedValue = selectedLocation.replace(/ *\([^)]*\) */g, "");
+
     axios.get(
-			`/hospital${`${condition && `?speciality=${condition}`}&city=Ichon`}`,
+			`/hospital?speciality=${condition?.code || ''}&city=${strippedValue}`,
 			{
 				baseURL: REACT_APP_UMEDI_URL,
 				headers: {
 					'X-Api-Key': REACT_APP_UMEDI_ACCESS_TOKEN
 				}
 			},
-		).then(({data}) => {
+		)
+		.then(({data}) => {
 			setLoading(false);
+			setError(null);
+			setIsMatched(true)
 			setHospitalList(data);
-	
-			if (params?.condition) {
-				setFilteredHospitalList(data.filter(hospital => hospital.speciality_1 === params?.condition || hospital?.speciality_2 === params?.condition));
-			} else {
-				setFilteredHospitalList(data);
+			setFilteredHospitalList(data);
+		})
+		.catch(error => {
+			const response = error.response;
+			if (response.data.message === 'no items') {
+				setIsMatched(false);
 			}
+			setLoading(false);
+			setError(error);
 		})
 	}
 
@@ -235,31 +223,34 @@ function Hospital(){
 
 								<section className="section-area">
 									<div className="container">
-										<div className="row justify-content-center list">
+										<div className="row list">
 											{
-												loading && (<div className="loading-wrap">
-													<Spinner animation="border" role="status" />
-												</div>)
+												loading && (
+													<div className="loading-wrap">
+														<Spinner animation="border" role="status" />
+													</div>
+												)
 											}
 											{
-											!loading && isMatched && filteredHospitalList.map((hospital, index) => (
-												<div key={hospital.id} className="col-lg-4 mb-30">
-													<div className="hospital-wrap">
-														<div className="hospital-row">
-															<div className="hospital-info">
-																<div className="hospital-info-content">
-																	<span className="title">{hospital.name}</span>
-																	<span className="text-secondary">{hospital?.speciality1_name} {hospital?.speciality2_name ? `| ${hospital?.speciality2_name }` : ''}</span>
-																	<span className="text-secondary">{hospital?.city}</span>
+												!loading && isMatched && filteredHospitalList.map((hospital, index) => (
+													<div key={hospital.id} className="col-lg-4 mb-20">
+														<div className="hospital-wrap">
+															<div className="hospital-row">
+																<div className="hospital-info">
+																	<div className="hospital-info-content">
+																		<span className="title">{hospital.name}</span>
+																		<span className="text-secondary">{hospital?.speciality1_name} {hospital?.speciality2_name ? `| ${hospital?.speciality2_name }` : ''}</span>
+																		<span className="text-secondary">{hospital?.city}</span>
+																	</div>
 																</div>
 															</div>
-														</div>
-														<div className="hospital-badge">
-															<Badge bg="primary" onClick={() => handleHospitalSelected(hospital)}>Select</Badge>
+															<div className="hospital-badge">
+																<Badge bg="primary" onClick={() => handleHospitalSelected(hospital)}>Select</Badge>
+															</div>
 														</div>
 													</div>
-												</div>
-											))}
+												))
+											}
 										</div>
 										{
 											!loading && !isMatched && (
