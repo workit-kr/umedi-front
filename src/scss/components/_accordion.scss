@@ -1,0 +1,174 @@
+/* ==================
+	8.2 Accordion
+=================== */
+.ttr-accordion1 {
+	.accordion-item {
+		border: 0;
+		margin-bottom: 15px;
+	}
+
+	.accordion-button {
+		background-color: $secondary;
+		font-weight: 600;
+		color: #fff;
+		border-radius: $border-radius-base !important;
+		border: 0;
+    padding: 18px 20px;
+		@include transitionMedium;
+
+		&.collapsed {
+			background-color: $primary;
+
+			&:after {
+				transform: rotateX(0);
+			}
+		}
+
+		&:after {
+			content: "\f078";
+			font-family: "Font Awesome 5 Free";
+			background-image: unset;
+			font-size: 14px;
+			transform: rotateX(-180deg);
+			width: auto;
+			height: auto;
+			@include transitionMedium;
+		}
+	}
+
+	.accordion-header {
+		margin-bottom: -5px;
+	}
+
+	.accordion-body {
+		font-size: 15px;
+		padding: 25px;
+		background-color: rgba($primary, 0.1);
+		border-radius: 0 0 $border-radius-base $border-radius-base;
+	}
+}
+
+.agree-accordion1 {
+	padding-top: 2rem;
+
+	.accordion-item {
+		border: 0;
+		margin-bottom: 15px;
+	}
+
+	.accordion-button {
+		font-weight: 600;
+		color: #222;
+		border-radius: $border-radius-base !important;
+		border: 1px solid $primary;
+    padding: 18px 20px;
+		@include transitionMedium;
+
+		&.collapsed {
+
+			&:after {
+				transform: rotateX(0);
+			}
+		}
+
+		&:after {
+			content: "\f078";
+			font-family: "Font Awesome 5 Free";
+			background-image: unset;
+			font-size: 14px;
+			transform: rotateX(-180deg);
+			width: auto;
+			height: auto;
+			@include transitionMedium;
+		}
+	}
+
+	.accordion-header {
+		margin-bottom: -5px;
+	}
+
+	.accordion-body {
+		font-size: 15px;
+		padding: 25px;
+		background-color: rgba($primary, 0.1);
+		border-radius: 0 0 $border-radius-base $border-radius-base;
+		max-height: 350px;
+		overflow-y: scroll;
+	}
+}
+
+.schedule-accordion1 {
+	padding-top: 2rem;
+
+	.schedule-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 10px;
+    width: 100%;
+
+	}
+
+	.accordion-item {
+		border: 0;
+		margin-bottom: 15px;
+	}
+
+	.accordion-button {
+		font-weight: 600;
+		color: #222;
+		border-radius: $border-radius-base !important;
+		border: 1px solid $primary;
+    padding: 18px 20px;
+		@include transitionMedium;
+
+		&.collapsed {
+
+			&:after {
+				transform: rotateX(0);
+			}
+		}
+
+		&:after {
+			content: "\f078";
+			font-family: "Font Awesome 5 Free";
+			background-image: unset;
+			font-size: 14px;
+			transform: rotateX(-180deg);
+			width: auto;
+			height: auto;
+			@include transitionMedium;
+		}
+	}
+
+	.accordion-header {
+		margin-bottom: -5px;
+	}
+
+	.accordion-body {
+		font-size: 15px;
+		padding: 25px;
+		background-color: rgba($primary, 0.1);
+		border-radius: 0 0 $border-radius-base $border-radius-base;
+		max-height: 350px;
+    overflow-y: scroll;
+    padding: 25px;
+	}
+
+	.time-title {
+		font-size: 15px;
+		font-family: "Font Awesome 5 Free";
+		font-weight: 600;
+	}
+
+	.slots {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 5px;
+		padding-bottom: 10px;
+
+		>div {
+			width: 85px;
+		}
+	}
+}
