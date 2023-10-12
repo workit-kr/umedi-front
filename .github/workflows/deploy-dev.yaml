@@ -1,0 +1,38 @@
+name: Build React App
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  build:
+    runs-on: ubuntu-latest      
+    strategy:
+      matrix:
+        node-version: [ 16.x ]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Create env file
+        run: |
+          touch .env
+          echo REACT_APP_UMEDI_ACCESS_TOKEN=${{ vars.REACT_APP_UMEDI_ACCESS_TOKEN }} >> .env
+          cat .env
+      - name: Npm Install
+        run: |
+          npm install
+      - name: Npm Build
+        run: |
+          npm run build
+      - name: Deploy to S3
+        with:
+          args: --acl public-read --delete
+        env:
+          AWS_S3_BUCKET: umedi-front
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          SOURCE_DIR: "build"
