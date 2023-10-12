@@ -169,5 +169,5 @@ export const LOCATION_LIST = [
   "Sinsa(신사)",
   "Bangbae(방배)",
   "Ichon(이촌)",
-  "Hannam(송파)"
+  "Hannam(한남)"
 ];
