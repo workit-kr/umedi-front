@@ -93,14 +93,6 @@ function Information() {
       blobToBase64(blob)
       .then(resizedFile => {
 				setAdditionalImages([...additionalImages, resizedFile]);
-
-        const imageToUpload = {
-        //   tran_seqno: sku.tran_seqno,
-        //   cust_id: userDetail.account, 
-        //   sku_code: sku.sku_code, 
-        //   image_seq: uuid, 
-        //   image_str: resizedFile.replace(/^data:image\/\w+;base64,/, '')
-        } 
       })
     });
 
@@ -127,7 +119,7 @@ function Information() {
   }
 
 	const onAdditionalCameraIconClicked = () => {
-    if (additionalImages.length > 2) {
+    if (additionalImages.length > 4) {
       alert('사진은 최대 4개만 첨부할 수 있습니다.');
       return;
     }
