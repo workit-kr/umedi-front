@@ -380,7 +380,7 @@ ol {
 	}
 
 	@include respond('phone') {
-    padding: 20px 30px 30px;
+    padding: 20px 30px 20px;
 	}
 }
 
@@ -505,7 +505,7 @@ ol {
 	.input-area {
     display: flex;
     flex-direction: column;
-    height: 90%;
+    height: 85%;
     justify-content: space-between;
 
 		.submit-button {
@@ -1795,6 +1795,7 @@ blockquote {
 	flex-direction: column;
 	height: 90%;
 	justify-content: space-between;
+	overflow-y: auto;
 
 	.schedule-accordion1 {
 		padding-top: 2rem;

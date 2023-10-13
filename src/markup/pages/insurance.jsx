@@ -13,7 +13,7 @@ function Insurance(){
 
 	useEffect(() => {
 		const obj = bookingObject;
-		delete obj.schedule;
+		delete obj.schedules;
 
 		sessionStorage.setItem('bookingObject', JSON.stringify(obj))
 	}, [])

@@ -67,7 +67,7 @@ function Complete() {
 			<div className="page-content bg-white">
 				<section className="section-area section-sp1 bg-white">
 					<div className="container">
-						<div className="col-md-12 mb-30 mt-50 information-container">
+						<div className="col-md-12 mb-10 mt-40 information-container">
 							<div className="input-area" id="comments">
 
 								<div className="input-container">
