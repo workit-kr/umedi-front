@@ -160,14 +160,27 @@ export const HOSPITAL_LIST = [
 ];
 
 export const LOCATION_LIST = [
-  "Songpa(송파)",
-  "Apgujeong(압구정)",
-  "Yeoksam(역삼)",
-  "Jamsil(잠실)",
-  "Samseong(삼성)",
-  "Nonhyeon(아현)",
-  "Sinsa(신사)",
-  "Bangbae(방배)",
-  "Ichon(이촌)",
-  "Hannam(한남)"
+  "Songpa",
+  "Apgujeong",
+  "Yeoksam",
+  "Jamsil",
+  "Samseong",
+  "Nonhyeon",
+  "Sinsa",
+  "Bangbae",
+  "Ichon",
+  "Hannam"
 ];
+
+// export const LOCATION_LIST = [
+//   "Songpa(송파)",
+//   "Apgujeong(압구정)",
+//   "Yeoksam(역삼)",
+//   "Jamsil(잠실)",
+//   "Samseong(삼성)",
+//   "Nonhyeon(아현)",
+//   "Sinsa(신사)",
+//   "Bangbae(방배)",
+//   "Ichon(이촌)",
+//   "Hannam(한남)"
+// ];
