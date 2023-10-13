@@ -25,11 +25,13 @@ function Information() {
 			return;
 		}
 
+		const obj = bookingObject?.information;
 		sessionStorage.setItem('bookingObject', 
 			JSON.stringify(
 			{
 				...bookingObject, 
 				information: {
+					...obj, 
 					email: email,
 					phoneNumber: phoneNumber,
 					additionalImages: additionalImages,

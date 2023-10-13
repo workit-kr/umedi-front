@@ -28,7 +28,7 @@ function InsuranceInformation() {
 			setFirstName(data.firstName);
 			setLastName(data.lastName);
 			setGender(data.gender);
-			setValue(dayjs(new Date(data.value)));
+			setValue(dayjs(new Date(data.dateOfBirth)));
 		}
 	}, [])
 
@@ -41,7 +41,7 @@ function InsuranceInformation() {
 					firstName: firstName,
 					lastName: lastName,
 					gender: gender,
-					value: value
+					dateOfBirth: value
 				}
 			}
 		))
