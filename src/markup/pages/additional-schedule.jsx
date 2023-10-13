@@ -9,37 +9,39 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 
 const SLOTS = [
-	{ label: "AM 9:00" , value: "AM 9:00" , flag: "M"},
-	{ label: "AM 9:30" , value: "AM 9:30" , flag: "M"},
+	{ label: "AM 09:00" , value: "AM 09:00" , flag: "M"},
+	{ label: "AM 09:30" , value: "AM 09:30" , flag: "M"},
 	{ label: "AM 10:00", value: "AM 10:00", flag: "M"},
 	{ label: "AM 10:30", value: "AM 10:30", flag: "M"},
 	{ label: "AM 11:00", value: "AM 11:00", flag: "M"},
 	{ label: "AM 11:30", value: "AM 11:30", flag: "M"},
 	{ label: "PM 12:00", value: "PM 12:00", flag: "A"},
 	{ label: "PM 12:30", value: "PM 12:30", flag: "A"},
-	{ label: "PM 1:00" , value: "PM 1:00" , flag: "A"},
-	{ label: "PM 1:30" , value: "PM 1:30" , flag: "A"},
-	{ label: "PM 2:00" , value: "PM 2:00" , flag: "A"},
-	{ label: "PM 2:30" , value: "PM 2:30" , flag: "A"},
-	{ label: "PM 3:00" , value: "PM 3:00" , flag: "A"},
-	{ label: "PM 3:30" , value: "PM 3:30" , flag: "A"},
-	{ label: "PM 4:00" , value: "PM 4:00" , flag: "A"},
-	{ label: "PM 4:30" , value: "PM 4:30" , flag: "A"},
-	{ label: "PM 5:00" , value: "PM 5:00" , flag: "A"},
-	{ label: "PM 5:30" , value: "PM 5:30" , flag: "A"},
-	{ label: "PM 6:00" , value: "PM 6:00" , flag: "A"},
+	{ label: "PM 01:00" , value: "PM 01:00" , flag: "A"},
+	{ label: "PM 01:30" , value: "PM 01:30" , flag: "A"},
+	{ label: "PM 02:00" , value: "PM 02:00" , flag: "A"},
+	{ label: "PM 02:30" , value: "PM 02:30" , flag: "A"},
+	{ label: "PM 03:00" , value: "PM 03:00" , flag: "A"},
+	{ label: "PM 03:30" , value: "PM 03:30" , flag: "A"},
+	{ label: "PM 04:00" , value: "PM 04:00" , flag: "A"},
+	{ label: "PM 04:30" , value: "PM 04:30" , flag: "A"},
+	{ label: "PM 05:00" , value: "PM 05:00" , flag: "A"},
+	{ label: "PM 05:30" , value: "PM 05:30" , flag: "A"},
+	{ label: "PM 06:00" , value: "PM 06:00" , flag: "A"},
 ];
 
 function AdditionalSchedule(){
   const bookingObject = JSON.parse(sessionStorage.getItem('bookingObject') || null);
+  const navigate = useNavigate();
+
   const [value, setValue] = useState(dayjs(new Date()));
 	const [selectedDate, setSelectedDate] = useState("");
 	const [selectedSlot, setSelectedSlot] = useState("");
 	const [activeTab, setActiveTab] = useState("0");
 
 	useState(() => {
-		if (bookingObject?.schedule.length > 1) {
-			const data = bookingObject?.schedule[1];
+		if (bookingObject?.schedules.length > 1) {
+			const data = bookingObject?.schedules[1];
 			setSelectedDate(dayjs(new Date(data.date)));
 			setSelectedSlot(data.slot);
 			setActiveTab("-1");
@@ -50,8 +52,6 @@ function AdditionalSchedule(){
 
 		sessionStorage.setItem('bookingObject', JSON.stringify(obj))
 	}, []);
-
-  const navigate = useNavigate();
 
 	const handleDateSelected = (value) => {
 		setValue(value);
@@ -74,13 +74,13 @@ function AdditionalSchedule(){
 	}
 
 	const handleNext = () => {
-		const schedule = bookingObject.schedule[0];
+		const schedule = bookingObject.schedules[0];
 
 		sessionStorage.setItem('bookingObject', 
 			JSON.stringify(
 			{
 				...bookingObject, 
-				schedule: [
+				schedules: [
 					schedule,
 					{
 						date: selectedDate,
