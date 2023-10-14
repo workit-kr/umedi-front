@@ -449,8 +449,7 @@ ol {
 
 
 	.icon-text {
-		color: #444;
-		font-family: inherit;
+		color: #8e8e8e;
 		font-size: 14px;
 		font-weight: 400;
 		padding-left: 30px;
@@ -982,7 +981,7 @@ ol {
 			display: flex;
 			width: 100%;
 			justify-content: center;
-			padding-top: 15px;
+			padding-top: 5px;
 
 			.btn {
 				width: 100%;
@@ -1793,12 +1792,12 @@ blockquote {
 .schedule-container {
 	display: flex;
 	flex-direction: column;
-	height: 90%;
+	height: 80%;
 	justify-content: space-between;
 	overflow-y: auto;
 
 	.schedule-accordion1 {
-		padding-top: 2rem;
+		padding-top: 1rem;
 
 		.schedule-wrap {
 			display: flex;
@@ -1848,7 +1847,7 @@ blockquote {
 		.accordion-body {
 			font-size: 15px;
 			padding: 25px;
-			background-color: rgba($primary, 0.1);
+			background-color: #fff;
 			border-radius: 0 0 $border-radius-base $border-radius-base;
 			max-height: 350px;
 			overflow-y: scroll;
@@ -1877,7 +1876,6 @@ blockquote {
     display: flex;
     flex-direction: column;
     height: 90%;
-    justify-content: space-between;
 
 		.additional-appointment {
 			display: flex;
@@ -2018,5 +2016,38 @@ blockquote {
 			}
 
 		}
+	}
+}
+
+.accordion-wrap {    
+	margin: 1rem;
+	padding: 1rem;
+	border-radius: 6px;
+	background: rgba(75, 127, 251, 0.1);
+
+	.subtitle {
+		font-weight: 600;
+    color: #1f2278;
+
+		.required {
+			color: red;
+		}
+	}
+}
+
+.continue-button {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	padding: 18px 10px;
+	height: 10%;
+
+	.btn {
+		width: 100%;
+		margin: 0 10px;
+	}
+
+	button {
+		width: 100%;
 	}
 }
