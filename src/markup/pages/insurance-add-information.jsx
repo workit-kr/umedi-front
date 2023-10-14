@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom";
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
 import ImageTools from '../utilities/imageTools';
 
 
@@ -161,31 +163,63 @@ function Information() {
 							<div className="input-area" id="comments">
 
 								<div className="input-container" id="respond">
-									<InputGroup className="mb-1">
-										<InputGroup.Text id="email"><i className="far fa-envelope"></i></InputGroup.Text>
-										<Form.Control
-											placeholder="abc@email.com"
-											aria-label="Email"
-											aria-describedby="Email"	
-											value={email}				
-											onChange={(e) => setEmail(e.target.value)}
-										/>
-									</InputGroup>
-									<InputGroup className="mb-1">
-										<InputGroup.Text id="phoneNumber"><i className="fas fa-phone-alt"></i></InputGroup.Text>
-										<Form.Control
-											placeholder="Your phone number"
-											aria-label="Phone Number"
-											aria-describedby="Phone Number"
-											value={phoneNumber}				
-											onChange={handlePhoneNumberChanged}
-										/>
-									</InputGroup>
+
+								<TextField
+										sx={{
+											margin: '0px 0px 0.25rem',
+											".MuiOutlinedInput-notchedOutline": {
+												borderColor: '#006EB7 !important',
+												borderWidth: '1px',
+												paddingLeft: '14px',
+											},
+											".MuiOutlinedInput-input": {
+												paddingLeft: '25px'
+											}
+										}}
+										labelId="email"
+										id="email"
+										fullWidth
+										placeholder="abc@email.com"
+										value={email}				
+										onChange={(e) => setEmail(e.target.value)}
+										InputProps={{
+											startAdornment: 
+											<InputAdornment position="start" sx={{ paddingLeft: '10px' }}>
+												<i className="far fa-envelope"></i>
+											</InputAdornment>,
+										}}
+									>
+									</TextField>
+									<TextField
+										sx={{
+											margin: '0px 0px 0.25rem',
+											".MuiOutlinedInput-notchedOutline": {
+												borderColor: '#006EB7 !important',
+												borderWidth: '1px',
+												paddingLeft: '14px',
+											},
+											".MuiOutlinedInput-input": {
+												paddingLeft: '25px'
+											}
+										}}
+										labelId="Phone Number"
+										id="Phone Number"
+										fullWidth
+										placeholder="Your phone number"
+										value={phoneNumber}				
+										onChange={handlePhoneNumberChanged}
+										InputProps={{
+											startAdornment: 
+											<InputAdornment position="start" sx={{ paddingLeft: '10px' }}>
+												<i className="fas fa-phone-alt"></i>
+											</InputAdornment>,
+										}}
+									>
+									</TextField>
 
 									<div className="image-wrap">
 										<div className="image-title">
 											Insurance Card(front/back)
-											<span className="required">*</span>
 										</div>
 
 										<div className="insurance-image-icon">
@@ -200,7 +234,6 @@ function Information() {
 													style={{ display: 'none' }}
 													onChange={onFileChange}
 													/>
-
 											</button>
 											{
 												[0, 1].map((val, idx) => (
@@ -223,7 +256,7 @@ function Information() {
 
 									<div className="image-wrap">
 										<div className="image-title">
-											Attached medical record/certificate..
+											Attached medical record/certificate..(optional)
 										</div>
 
 										<div className="insurance-image-icon">

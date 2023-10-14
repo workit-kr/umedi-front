@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom";
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
 
 
 function Information() {
@@ -63,48 +65,113 @@ function Information() {
 							<div className="input-area" id="comments">
 
 								<div className="input-container" id="respond">
+									<TextField
+										sx={{
+											margin: '0px 0px 0.25rem',
+											".MuiOutlinedInput-notchedOutline": {
+												borderColor: '#006EB7 !important',
+												borderWidth: '1px',
+												paddingLeft: '14px',
+											},
+											".MuiOutlinedInput-input": {
+												paddingLeft: '25px'
+											}
+										}}
+										MenuProps={{ disableScrollLock: true }}
+										labelId="Last Name"
+										id="Last Name"
+										fullWidth
+										placeholder="Last Name"
+										value={lastName}
+										onChange={(e) => setLastName(e.target.value)}
+										InputProps={{
+											startAdornment: 
+											<InputAdornment position="start" sx={{ paddingLeft: '10px' }}>
+												<i className="far fa-user"></i>
+											</InputAdornment>,
+										}}
+									>
+									</TextField>
+									<TextField
+										sx={{
+											margin: '0px 0px 0.25rem',
+											".MuiOutlinedInput-notchedOutline": {
+												borderColor: '#006EB7 !important',
+												borderWidth: '1px',
+												paddingLeft: '14px',
+											},
+											".MuiOutlinedInput-input": {
+												paddingLeft: '25px'
+											}
+										}}
+										MenuProps={{ disableScrollLock: true }}
+										labelId="First Name"
+										id="First Name"
+										fullWidth
+										placeholder="First Name"
+										value={firstName}				
+										onChange={(e) => setFirstName(e.target.value)}
+										InputProps={{
+											startAdornment: 
+											<InputAdornment position="start" sx={{ paddingLeft: '10px' }}>
+												<i className="far fa-user"></i>
+											</InputAdornment>,
+										}}
+									>
+									</TextField>
 
-									<InputGroup className="mb-1 input-group">
-										<InputGroup.Text id="lastName"><i className="far fa-user"></i></InputGroup.Text>
-										<Form.Control
-											className="input-label"
-											placeholder="Last Name"
-											aria-label="Last Name"
-											aria-describedby="Last Name"
-											value={lastName}
-											onChange={(e) => setLastName(e.target.value)}
-										/>
-									</InputGroup>
-									<InputGroup className="mb-1">
-										<InputGroup.Text id="firstName"><i className="far fa-user"></i></InputGroup.Text>
-										<Form.Control
-											placeholder="First Name"
-											aria-label="First Name"
-											aria-describedby="First Name"	
-											value={firstName}				
-											onChange={(e) => setFirstName(e.target.value)}
-										/>
-									</InputGroup>
-									<InputGroup className="mb-1">
-										<InputGroup.Text id="email"><i className="far fa-envelope"></i></InputGroup.Text>
-										<Form.Control
-											placeholder="abc@email.com"
-											aria-label="Email"
-											aria-describedby="Email"	
-											value={email}				
-											onChange={(e) => setEmail(e.target.value)}
-										/>
-									</InputGroup>
-									<InputGroup className="mb-1">
-										<InputGroup.Text id="phoneNumber"><i className="fas fa-phone-alt"></i></InputGroup.Text>
-										<Form.Control
-											placeholder="Your phone number"
-											aria-label="Phone Number"
-											aria-describedby="Phone Number"	
-											value={phoneNumber}				
-											onChange={handlePhoneNumberChanged}
-										/>
-									</InputGroup>
+									<TextField
+										sx={{
+											margin: '0px 0px 0.25rem',
+											".MuiOutlinedInput-notchedOutline": {
+												borderColor: '#006EB7 !important',
+												borderWidth: '1px',
+												paddingLeft: '14px',
+											},
+											".MuiOutlinedInput-input": {
+												paddingLeft: '25px'
+											}
+										}}
+										labelId="email"
+										id="email"
+										fullWidth
+										placeholder="abc@email.com"
+										value={email}				
+										onChange={(e) => setEmail(e.target.value)}
+										InputProps={{
+											startAdornment: 
+											<InputAdornment position="start" sx={{ paddingLeft: '10px' }}>
+												<i className="far fa-envelope"></i>
+											</InputAdornment>,
+										}}
+									>
+									</TextField>
+									<TextField
+										sx={{
+											margin: '0px 0px 0.25rem',
+											".MuiOutlinedInput-notchedOutline": {
+												borderColor: '#006EB7 !important',
+												borderWidth: '1px',
+												paddingLeft: '14px',
+											},
+											".MuiOutlinedInput-input": {
+												paddingLeft: '25px'
+											}
+										}}
+										labelId="Phone Number"
+										id="Phone Number"
+										fullWidth
+										placeholder="Your phone number"
+										value={phoneNumber}				
+										onChange={handlePhoneNumberChanged}
+										InputProps={{
+											startAdornment: 
+											<InputAdornment position="start" sx={{ paddingLeft: '10px' }}>
+												<i className="fas fa-phone-alt"></i>
+											</InputAdornment>,
+										}}
+									>
+									</TextField>
 								</div>
 
 								<div className="submit-button">

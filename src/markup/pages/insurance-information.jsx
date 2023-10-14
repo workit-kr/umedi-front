@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Form from 'react-bootstrap/Form';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -20,7 +18,8 @@ function InsuranceInformation() {
 	const [lastName, setLastName] = useState("");
 	const [gender, setGender] = useState("");
 	const [genderList] = useState(["Male", "Female", "Other"]);
-  const [value, setValue] = useState(dayjs(new Date()));
+  const [value, setValue] = useState(null);
+  const [additionalInformation, setAdditionalInformation] = useState("");
 
 	useEffect(() => {
 		if (bookingObject?.information) {
@@ -29,6 +28,7 @@ function InsuranceInformation() {
 			setLastName(data.lastName);
 			setGender(data.gender);
 			setValue(dayjs(new Date(data.dateOfBirth)));
+			setAdditionalInformation(data.additionalInformation);
 		}
 	}, [])
 
@@ -41,7 +41,8 @@ function InsuranceInformation() {
 					firstName: firstName,
 					lastName: lastName,
 					gender: gender,
-					dateOfBirth: value
+					dateOfBirth: value,
+					additionalInformation: additionalInformation
 				}
 			}
 		))
@@ -62,33 +63,65 @@ function InsuranceInformation() {
 							<div className="input-area" id="comments">
 
 								<div className="input-container" id="respond">
-
-									<InputGroup className="mb-1 input-group">
-										<InputGroup.Text id="lastName"><i className="fa fa-search"></i></InputGroup.Text>
-										<Form.Control
-											className="input-label"
-											placeholder="Last Name"
-											aria-label="Last Name"
-											aria-describedby="Last Name"
-											value={lastName}
-											onChange={(e) => setLastName(e.target.value)}
-										/>
-									</InputGroup>
-									<InputGroup className="mb-1">
-										<InputGroup.Text id="firstName"><i className="fa fa-hospital"></i></InputGroup.Text>
-										<Form.Control
-											placeholder="First Name"
-											aria-label="First Name"
-											aria-describedby="First Name"	
-											value={firstName}				
-											onChange={(e) => setFirstName(e.target.value)}
-										/>
-									</InputGroup>
+									<TextField
+										sx={{
+											margin: '0px 0px 0.25rem',
+											".MuiOutlinedInput-notchedOutline": {
+												borderColor: '#006EB7 !important',
+												borderWidth: '1px',
+												paddingLeft: '14px',
+											},
+											".MuiOutlinedInput-input": {
+												paddingLeft: '25px'
+											}
+										}}
+										MenuProps={{ disableScrollLock: true }}
+										labelId="Last Name"
+										id="Last Name"
+										fullWidth
+										placeholder="Last Name"
+										value={lastName}
+										onChange={(e) => setLastName(e.target.value)}
+										InputProps={{
+											startAdornment: 
+											<InputAdornment position="start" sx={{ paddingLeft: '10px' }}>
+												<i className="far fa-user"></i>
+											</InputAdornment>,
+										}}
+									>
+									</TextField>
+									<TextField
+										sx={{
+											margin: '0px 0px 0.25rem',
+											".MuiOutlinedInput-notchedOutline": {
+												borderColor: '#006EB7 !important',
+												borderWidth: '1px',
+												paddingLeft: '14px',
+											},
+											".MuiOutlinedInput-input": {
+												paddingLeft: '25px'
+											}
+										}}
+										MenuProps={{ disableScrollLock: true }}
+										labelId="First Name"
+										id="First Name"
+										fullWidth
+										placeholder="First Name"
+										value={firstName}				
+										onChange={(e) => setFirstName(e.target.value)}
+										InputProps={{
+											startAdornment: 
+											<InputAdornment position="start" sx={{ paddingLeft: '10px' }}>
+												<i className="far fa-user"></i>
+											</InputAdornment>,
+										}}
+									>
+									</TextField>
 									<TextField
 											sx={{
 												margin: '0px 0px 0.25rem',
 												".MuiOutlinedInput-notchedOutline": {
-													borderColor: 'rgb(86, 90, 207) !important',
+													borderColor: '#006EB7 !important',
 													borderWidth: '1px',
 													paddingLeft: '14px',
 												},
@@ -97,8 +130,8 @@ function InsuranceInformation() {
 												}
 											}}
 											MenuProps={{ disableScrollLock: true }}
-											labelId="search-condition-label"
-											id="search-condition"
+											labelId="search-gender"
+											id="search-gender"
 											value={gender}
 											select
 											fullWidth
@@ -124,7 +157,7 @@ function InsuranceInformation() {
 												width: '100%',
 												margin: '0px 0px 0.25rem',
 												".MuiOutlinedInput-notchedOutline": {
-													borderColor: 'rgb(86, 90, 207) !important',
+													borderColor: '#006EB7 !important',
 													borderWidth: '1px',
 													paddingLeft: '14px',
 												},
@@ -135,7 +168,6 @@ function InsuranceInformation() {
 											}} 
 											value={value} 
 											onChange={(newValue) => setValue(newValue)} 
-											minDate={dayjs(new Date())}
 											format="YYYY-MM-DD"
 											slotProps={{
 												textField: {
@@ -144,7 +176,8 @@ function InsuranceInformation() {
 															<InputAdornment position="start" sx={{ paddingLeft: '10px' }}>
 																<i className="far fa-calendar fa-lg"></i>
 															</InputAdornment>
-														)
+														),
+														placeholder: 'Date of Birth'
 													},
 												},
 											}}
@@ -155,6 +188,34 @@ function InsuranceInformation() {
 											)}
 										/>
 									</LocalizationProvider>
+									<TextField
+										sx={{
+											margin: '0px 0px 0.25rem',
+											".MuiOutlinedInput-notchedOutline": {
+												borderColor: '#006EB7 !important',
+												borderWidth: '1px',
+												paddingLeft: '14px',
+											},
+											".MuiOutlinedInput-input": {
+												paddingLeft: '25px'
+											}
+										}}
+										labelId="additional-information-label"
+										id="additional-information"
+										fullWidth
+										multiline
+										maxRows={4}
+										placeholder='Additional Information'
+										value={additionalInformation}
+										onChange={(e) => setAdditionalInformation(e.target.value)}
+										InputProps={{
+											startAdornment: 
+											<InputAdornment position="start" sx={{ paddingLeft: '15px' }}>
+												<i className="fas fa-info"></i>
+											</InputAdornment>,
+										}}
+										>
+									</TextField>
 								</div>
 
 								<div className="submit-button">
