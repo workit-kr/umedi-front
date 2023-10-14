@@ -23,6 +23,7 @@ function Condition(){
 
 	useEffect(() => {
 		setLoading(true);
+		const hospital = bookingObject?.hospitalObj;
 
     axios.get(
 		`/speciality`,
@@ -35,7 +36,12 @@ function Condition(){
 	).then(({data}) => {
 		setLoading(false);
 		setConditionList(data);
-		setFilteredConditionList(data);
+
+		if (hospital) {
+			setFilteredConditionList(data.filter(d => d.code === hospital?.speciality_1 || d.code === hospital?.speciality_2));
+		} else {
+			setFilteredConditionList(data);
+		}
 	})
 	}, []);
 
@@ -66,7 +72,7 @@ function Condition(){
 		sessionStorage.setItem('bookingObject', JSON.stringify({...bookingObject, condition: condition.name, conditionCode: condition.code}))
 
 		if (bookingObject?.hospitalId) {
-			navigate(`/condition/${condition.code}/hospital/${bookingObject?.hospitalId}/main`);
+			navigate(`/agreement`);
 		} else {
 			navigate(`/condition/${condition.code}/hospital`);
 		}

@@ -139,11 +139,10 @@ function Hospital(){
 	}
 
 	const handleHospitalSelected = (hospital) => {
-		sessionStorage.setItem('bookingObject', JSON.stringify({...bookingObject, hospital: hospital.name, hospitalId: hospital.id}))
+		sessionStorage.setItem('bookingObject', JSON.stringify({...bookingObject, hospital: hospital.name, hospitalId: hospital.id, hospitalObj: hospital}))
 
 		if (condition?.code) {
-			navigate(`/hospital/${hospital.id}/condition/${bookingObject?.conditionCode}/main`);
-
+			navigate(`/agreement`);
 		} else {
 			navigate(`/hospital/${hospital.id}/condition`);
 		}
