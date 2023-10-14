@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from "react-router-dom";
 import {Accordion} from 'react-bootstrap';
@@ -12,6 +12,12 @@ function Agreement(){
 	const [term2, setTerm2] = useState(bookingObject?.termsAgreed);
 	const [activeTab, setActiveTab] = useState("-1");
   const navigate = useNavigate();
+
+	useEffect(() => {
+		if (term1 && term2) {
+			setAgreeToAll(true);
+		}
+	}, [term1, term2])
 
 	const handleTab = (key) => {
 		if (key === activeTab) {
