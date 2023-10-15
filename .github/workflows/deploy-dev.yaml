@@ -12,7 +12,19 @@ jobs:                                # Job 설정
       
       - name: Check Node v            # Node v 확인
         run: node -v
-        
+      
+      # Github Repository Secrets를 통해 환경 변수 파일을 생성합니다.
+      - name: Generate Environment Variables File for Production
+        run: |
+          echo "REACT_APP_UMEDI_URL=$REACT_APP_DOMAIN" >> .env
+          echo "REACT_APP_UMEDI_ACCESS_TOKEN=$REACT_APP_DEBUG" >> .env
+          echo "REACT_APP_UMEDI_GOOGLE_MAP_API_TOKEN=$REACT_APP_DEBUG" >> .env
+          echo "CI=false" >> .env
+        env:
+          REACT_APP_UMEDI_URL: ${{ secrets.REACT_APP_UMEDI_URL }}
+          REACT_APP_UMEDI_ACCESS_TOKEN: ${{ secrets.REACT_APP_UMEDI_ACCESS_TOKEN }}
+          REACT_APP_UMEDI_GOOGLE_MAP_API_TOKEN: ${{ secrets.REACT_APP_UMEDI_GOOGLE_MAP_API_TOKEN }}
+
       - name: Install dependencies    # 의존 파일 설치
         run: npm install
       
