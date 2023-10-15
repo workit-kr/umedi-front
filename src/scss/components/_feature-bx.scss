@@ -514,6 +514,7 @@
 
 	&.feature4 {
 		border-color: #e2c4ff;
+    height: 55px;
 
 		&:after {
 			background-color: #f8f0ff;
@@ -526,15 +527,7 @@
 			font-weight: 600;
 			color: $dark;
 			margin: 0;
-		}
-	}
-
-	&:hover {
-		.icon-cell {
-			svg {
-				-webkit-animation: vibrate 0.5s alternate;
-				animation: vibrate 0.5s alternate;
-			}
+			padding-left: 20px;
 		}
 	}
 }
@@ -579,7 +572,6 @@
 		.feature-box-xl {
 
 			i,
-			svg,
 			img {
 				-webkit-animation: vibrate 0.5s alternate;
 				animation: vibrate 0.5s alternate;
@@ -712,6 +704,7 @@
 
 	&.feature4 {
 		border-color: #e2c4ff;
+    height: 55px;
 
 		.feature-icon {
 			&:after {
