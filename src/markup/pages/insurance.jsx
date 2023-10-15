@@ -23,11 +23,9 @@ function Insurance(){
 			<div className="page-content bg-white">
 				<section className="section-area section-sp1 bg-white">
 					<div className="container">
-							<div className="col-md-12 col-lg-7 col-xl-8 mb-30 mb-md-50">
-							</div>
-							<div className="col-md-12 col-lg-5 col-xl-4 mb-30">
+							<div className="col-md-12 mb-30 mt-30">
 							<h1 className="home-title">
-								<div className="title-text">Do you want to claim an Insurance?</div>
+								<div className="title-text">Do you want to use your insurance for payment?</div>
 							</h1>
 							<div className="clear" id="comment-list">
 									<div className="insurance-container" id="comments">
@@ -46,7 +44,7 @@ function Insurance(){
 											</div>
 											<div className="icon-content">
 												<h3 className="ttr-title">YES</h3>
-												<p>I Want to Claim Insurance</p>
+												<p>I want to use insurance</p>
 											</div>
 										</div>
 
@@ -64,7 +62,7 @@ function Insurance(){
 											</div>
 											<div className="icon-content">
 												<h3 className="ttr-title">No</h3>
-												<p>I Do Have an Insurance</p>
+												<p>I don't have insurance</p>
 											</div>
 										</div>
 

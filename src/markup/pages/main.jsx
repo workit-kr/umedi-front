@@ -78,9 +78,12 @@ function Main() {
 						<div className="">
 							<div className="col-md-12 mb-30 mt-80">
 								<h1 className="home-title">
-									<div className="title-text">Book Top Cigna</div>
-									<div className="title-text">Doctors near Me</div>
+									<div className="title-text">Find Doctors who Take </div>
+									<div className="title-text">Your Insurance in Korea</div>
 								</h1>
+								<div className="home-subtitle">Having trouble finding doctors in Korea who accept Cigna & other international insurances? </div>
+								<div className="home-subtitle">We're here to make your healthcare in Korea more convenient. </div>
+
 								<div className="clear" id="comment-list">
 										<div className="input-area" id="comments">
 
