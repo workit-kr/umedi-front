@@ -38,8 +38,8 @@ function Complete() {
 				speciality: bookingObject?.conditionCode,
 				candidate_dt: schedules,
 				user: {
-					additional_images: bookingObject?.information?.additionalImages,
-					insurance_images: bookingObject?.information?.insuranceImages,
+					additional_imgs: bookingObject?.information?.additionalImages,
+					insurance_imgs: bookingObject?.information?.insuranceImages,
 					date_of_birth: dateOfBirth,
 					gender: bookingObject?.information?.gender?.toLowerCase(),
 					first_name: bookingObject?.information?.firstName,
