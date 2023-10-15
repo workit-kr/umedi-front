@@ -82,11 +82,7 @@ function Hospital(){
 		setValue(input);
 		
 		if (!input) {
-			if (selectedLocation) {
-				setFilteredHospitalList(hospitalList.filter(hospital => selectedLocation.startsWith(hospital.city)));
-			} else {
-				setFilteredHospitalList(hospitalList);
-			}
+			fetchHospitalList();
 			return;
 		}
 
@@ -108,12 +104,7 @@ function Hospital(){
 
 	const removeInputValue = () => {
 		setValue("");
-
-		if (selectedLocation) {
-			setFilteredHospitalList(hospitalList.filter(hospital => selectedLocation.startsWith(hospital.city)));
-		} else {
-			setFilteredHospitalList(hospitalList);
-		}
+		fetchHospitalList();
 	}
 
 	const handleLocationChanged = (e) => {
@@ -162,9 +153,7 @@ function Hospital(){
 			<div className="page-content bg-white">
 				<section className="section-area section-sp1 bg-white">
 					<div className="container">
-							<div className="col-md-12 col-lg-7 col-xl-8 mb-30 mb-md-50">
-							</div>
-							<div className="col-md-12 col-lg-5 col-xl-4 mb-30">
+							<div className="col-md-12 mb-30 mt-30 condition-container">
 								<h1 className="home-title">
 									<div className="title-text">Select the Hospital </div>
 								</h1>
@@ -241,7 +230,7 @@ function Hospital(){
 											}
 											{
 												!loading && isMatched && filteredHospitalList.map((hospital, index) => (
-													<div key={hospital.id} className="col-lg-4 mb-20">
+													<div key={hospital.id} className="mb-20">
 														<div className="hospital-wrap">
 															<div className="hospital-row">
 																<div className="hospital-info">
@@ -264,19 +253,17 @@ function Hospital(){
 													</div>
 												))
 											}
-										</div>
-										{
-											!loading && !isMatched && (
-											<div className="error-404">
-												<div className="inner-content">
-													<h2 className="error-title"><span></span></h2>
-													<p>Sorry, No Results.</p>
-													<div className="clearfix">
+											{
+												!loading && !isMatched && (
+												<div className="error-404">
+													<div className="inner-content">
+														<h2 className="error-title"><span></span></h2>
+														<p>Sorry, No Results.</p>
 													</div>
 												</div>
-											</div>
-											)
-										}
+												)
+											}
+										</div>
 									</div>
 								</section>
 

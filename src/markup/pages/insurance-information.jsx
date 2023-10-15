@@ -75,8 +75,6 @@ function InsuranceInformation() {
 												paddingLeft: '25px'
 											}
 										}}
-										MenuProps={{ disableScrollLock: true }}
-										labelId="Last Name"
 										id="Last Name"
 										fullWidth
 										placeholder="Last Name"
@@ -102,8 +100,6 @@ function InsuranceInformation() {
 												paddingLeft: '25px'
 											}
 										}}
-										MenuProps={{ disableScrollLock: true }}
-										labelId="First Name"
 										id="First Name"
 										fullWidth
 										placeholder="First Name"
@@ -129,8 +125,6 @@ function InsuranceInformation() {
 													paddingLeft: '25px'
 												}
 											}}
-											MenuProps={{ disableScrollLock: true }}
-											labelId="search-gender"
 											id="search-gender"
 											value={gender}
 											select
@@ -148,7 +142,7 @@ function InsuranceInformation() {
 											}}
 										>
 											{
-												genderList.map(data => <MenuItem value={data}>{data}</MenuItem>)
+												genderList.map(data => <MenuItem key={data} value={data}>{data}</MenuItem>)
 											}
 									</TextField>
 									<LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -200,12 +194,11 @@ function InsuranceInformation() {
 												paddingLeft: '25px'
 											}
 										}}
-										labelId="additional-information-label"
 										id="additional-information"
 										fullWidth
 										multiline
 										maxRows={4}
-										placeholder='Additional Information'
+										placeholder='Additional Information (Optional)'
 										value={additionalInformation}
 										onChange={(e) => setAdditionalInformation(e.target.value)}
 										InputProps={{

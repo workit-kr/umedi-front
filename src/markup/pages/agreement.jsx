@@ -45,7 +45,7 @@ function Agreement(){
 			<div className="page-content bg-white">
 				<section className="section-area section-sp1 bg-white">
 					<div className="container">
-						<div className="col-md-12 col-lg-5 col-xl-4 mb-50 mt-50 agree-container">
+						<div className="col-md-12 mb-50 mt-50 agree-container">
 							<h1 className="home-title">
 								<div className="title-text">Agreement</div>
 							</h1>

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -15,6 +13,7 @@ function Information() {
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
+  const [additionalInformation, setAdditionalInformation] = useState("");
 
 	const handlePhoneNumberChanged = (e) => {
 		const input = e.target.value;
@@ -41,7 +40,8 @@ function Information() {
 					firstName: firstName,
 					lastName: lastName,
 					email: email,
-					phoneNumber: phoneNumber
+					phoneNumber: phoneNumber,
+					additionalInformation: additionalInformation
 				}
 			}
 		))
@@ -77,8 +77,6 @@ function Information() {
 												paddingLeft: '25px'
 											}
 										}}
-										MenuProps={{ disableScrollLock: true }}
-										labelId="Last Name"
 										id="Last Name"
 										fullWidth
 										placeholder="Last Name"
@@ -104,8 +102,6 @@ function Information() {
 												paddingLeft: '25px'
 											}
 										}}
-										MenuProps={{ disableScrollLock: true }}
-										labelId="First Name"
 										id="First Name"
 										fullWidth
 										placeholder="First Name"
@@ -132,7 +128,6 @@ function Information() {
 												paddingLeft: '25px'
 											}
 										}}
-										labelId="email"
 										id="email"
 										fullWidth
 										placeholder="abc@email.com"
@@ -158,7 +153,6 @@ function Information() {
 												paddingLeft: '25px'
 											}
 										}}
-										labelId="Phone Number"
 										id="Phone Number"
 										fullWidth
 										placeholder="Your phone number"
@@ -171,6 +165,33 @@ function Information() {
 											</InputAdornment>,
 										}}
 									>
+									</TextField>
+									<TextField
+										sx={{
+											margin: '0px 0px 0.25rem',
+											".MuiOutlinedInput-notchedOutline": {
+												borderColor: '#006EB7 !important',
+												borderWidth: '1px',
+												paddingLeft: '14px',
+											},
+											".MuiOutlinedInput-input": {
+												paddingLeft: '25px'
+											}
+										}}
+										id="additional-information"
+										fullWidth
+										multiline
+										maxRows={4}
+										placeholder='Additional Information (Optional)'
+										value={additionalInformation}
+										onChange={(e) => setAdditionalInformation(e.target.value)}
+										InputProps={{
+											startAdornment: 
+											<InputAdornment position="start" sx={{ paddingLeft: '15px' }}>
+												<i className="fas fa-info"></i>
+											</InputAdornment>,
+										}}
+										>
 									</TextField>
 								</div>
 

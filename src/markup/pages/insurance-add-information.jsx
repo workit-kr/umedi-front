@@ -112,7 +112,7 @@ function Information() {
 
   const onInsuranceCameraIconClicked = () => {
     if (insuranceImages.length > 2) {
-      alert('사진은 최대 4개만 첨부할 수 있습니다.');
+      alert('사진은 최대 2개만 첨부할 수 있습니다.');
       return;
     }
 		fileInput.current.click();
@@ -254,7 +254,7 @@ function Information() {
 
 									<div className="image-wrap">
 										<div className="image-title">
-											Attached medical record/certificate..(optional)
+											Attached medical record/certificate (optional)
 										</div>
 
 										<div className="insurance-image-icon">
