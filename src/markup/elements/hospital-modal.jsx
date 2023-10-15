@@ -54,7 +54,7 @@ function HospitalModal({show, handleClose, hospital}) {
                   disableDefaultUI={true}
                   mapTypeControl={false}
                   mapContainerStyle={{
-                    width: '85vw',
+                    width: '100%',
                     height: '40vh'
                   }}
                   center={{lat: hospital?.latitude, lng: hospital?.longitude}}
