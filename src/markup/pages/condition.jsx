@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
-import { CONDITION_LIST } from '../const/const';
 import InputAdornment from '@mui/material/InputAdornment';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
