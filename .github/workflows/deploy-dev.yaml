@@ -16,9 +16,9 @@ jobs:                                # Job 설정
       # Github Repository Secrets를 통해 환경 변수 파일을 생성합니다.
       - name: Generate Environment Variables File for Production
         run: |
-          echo "REACT_APP_UMEDI_URL=$REACT_APP_DOMAIN" >> .env
-          echo "REACT_APP_UMEDI_ACCESS_TOKEN=$REACT_APP_DEBUG" >> .env
-          echo "REACT_APP_UMEDI_GOOGLE_MAP_API_TOKEN=$REACT_APP_DEBUG" >> .env
+          echo "REACT_APP_UMEDI_URL=$REACT_APP_UMEDI_URL" >> .env
+          echo "REACT_APP_UMEDI_ACCESS_TOKEN=$REACT_APP_UMEDI_ACCESS_TOKEN" >> .env
+          echo "REACT_APP_UMEDI_GOOGLE_MAP_API_TOKEN=$REACT_APP_UMEDI_GOOGLE_MAP_API_TOKEN" >> .env
           echo "CI=false" >> .env
         env:
           REACT_APP_UMEDI_URL: ${{ secrets.REACT_APP_UMEDI_URL }}
