@@ -2,6 +2,7 @@
 	9.2 Footer
 =================== */
 footer{
+	background-color: #008bd2;
 	position:relative;
 	z-index:1;
 	overflow:hidden;
@@ -31,7 +32,6 @@ footer{
 				left: 0;
 				width: 85px;
 				height: 7px;
-				background-image: url(../../images/shap/footer-line.png);
 				background-repeat: no-repeat;
 			}
 			@include respond('phone-land'){
@@ -94,8 +94,15 @@ footer{
 		}
 	}
 	.footer-logo{
-		max-width:190px;
+		display: flex;
+		justify-content: center;
+		width: 100%;
 		margin-bottom:25px;
+
+		a {
+			display: flex;
+			max-width: 190px;
+		}
 		@include respond('phone-land'){
 			margin-bottom:15px;
 		}
@@ -190,7 +197,6 @@ footer{
 	
 	&:after{
 		content: "";
-		background-image: url(../../images/background/footer-shape.png);
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -245,4 +251,45 @@ footer{
 			sright: 0px;
 		}
 	}
+}
+
+.sns-links {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+  gap: 2rem;
+	padding-bottom: 3rem;
+
+	i {
+		color: white;
+	}
+}
+
+.footer-text {
+	color: #fff;
+	display: flex;
+	justify-content: space-evenly;
+	font-size: 14px;
+	line-height: 2;
+
+	span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+		a {
+			color: rgba(255,255,255,1) !important;
+		}
+	}
+
+	.medium {
+		font-size: 16px;
+	}
+
+	.bold {
+		font-weight: 700;
+		color: #fff !important;
+	}
+
 }
