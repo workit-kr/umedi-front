@@ -130,7 +130,7 @@ function Schedule(){
 			<div className="page-content bg-white">
 				<section className="section-area section-sp1 bg-white">
 					<div className="container col">
-						<div className="col-md-12 mb-30 mt-50 schedule-container">
+						<div className="col-md-12 mb-20 mt-50 schedule-container">
 							<h1 className="home-title">
 								<div className="title-text">Appointment</div>
 							</h1>
