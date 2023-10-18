@@ -165,3 +165,34 @@
 
 	}
 }
+
+.we-offer-container {
+	display: flex;
+	padding: 1rem;
+	flex-direction: column;
+	
+	.we-offer {
+		display: flex;
+		color: #1E1C61;
+		font-size: 1.5rem;
+		padding: 2rem;
+		width: 100%;
+		justify-content: center;
+		font-weight: 600;
+	}
+
+	.we-offer-wrap {
+		display: flex;
+		flex-direction: column;
+		padding-bottom: 1.5rem;
+
+		.title {
+			font-size: 1.5rem;
+			font-weight: 800;
+			letter-spacing: -0.2px;
+			color: #222;
+			padding-bottom: 1rem;
+		}
+	}
+
+}

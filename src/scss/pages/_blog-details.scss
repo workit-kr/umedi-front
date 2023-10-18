@@ -2070,9 +2070,10 @@ blockquote {
 	}
 }
 
-@media (max-width: 400px) {
+@media (max-width: 575px) {
 	.schedule-container {
 		flex: 0 0 auto;
     width: 380px;
 	}
 }
+

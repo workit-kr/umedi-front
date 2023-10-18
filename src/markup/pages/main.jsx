@@ -5,6 +5,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom";
 import illustration from '../../images/Illustration.png';
+import alliances from '../../images/alliances.png';
 
 
 function Main() {
@@ -73,7 +74,7 @@ function Main() {
 	return(
 		<>
 				<Modal show={openModal} handleClose={handleModalClose} message={message} okButton="Enter Now!" handleOK={handleOK}/>
-				<div className="page-content bg-white">
+				<div className="page-content bg-white col" style={{ height: 'auto' }}>
 					<section className="section-area section-sp1 bg-white main-media">
 						<div className="">
 							<div className="col-md-12 mb-30 mt-80">
@@ -118,15 +119,31 @@ function Main() {
 											</div>
 
 										</div>
-									</div>
-
-
+								</div>
 							</div>
-
 							<img src={illustration} alt="main-illustration" />
 						</div>
 					</section>
-
+					<div className="we-offer-container">
+						<div className="we-offer">What We Offer</div>
+						<div className="we-offer-wrap">
+							<div className="title">Doctor Search</div>
+							<div className="content">Easily search for doctors and medical facilities in your area, filtering by specialty, location, and the language you prefer for your appointment.</div>
+						</div>
+						<div className="we-offer-wrap">
+							<div className="title">Insurance Compatibility</div>
+							<div className="content">We offer information about doctors and hospitals that accept your non-Korean insurance, including international insurers like Cigna and others. Plus, with our partnered Cigna services, you can enjoy the convenience of not having to pay upfront and waiting for reimbursement. Your insurance covers the cost directly.</div>
+						</div>
+						<div className="we-offer-wrap">
+							<div className="title">Real Reviews</div>
+							<div className="content">Read reviews and ratings from fellow expats to make informed choices about your healthcare providers.</div>
+						</div>
+						<div className="we-offer-wrap">
+							<div className="title">Insurance Guidance</div>
+							<div className="content">Receive assistance in navigating the insurance process, including guidance on the required documents for reimbursement, or, in the case of Cigna, benefit from our hassle-free direct coverage with no upfront payments.</div>
+						</div>
+						<img src={alliances} alt="alliances" />
+					</div>
 				</div>
 		</>
 

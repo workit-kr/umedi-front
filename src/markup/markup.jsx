@@ -7,6 +7,7 @@ import PageScrollTop from './elements/page-scroll-top';
 
 // Layout
 import Header from "./layout/header";
+import Footer from "./layout/footer";
 
 import Error from './pages/error-404';
 import Main from './pages/main';
@@ -70,6 +71,7 @@ function ThemeLayout(){
 		<>
 			<Header />
 			<Outlet />
+			<Footer />
 		</>
 	);
 }
