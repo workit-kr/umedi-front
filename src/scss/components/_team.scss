@@ -178,18 +178,21 @@
 		display: flex;
 		justify-content: start;
 		align-items: center;
+		width: 100%;
 
 		.hospital-info {
 			display: flex;
 			justify-content: flex-start;
+			width: 100%;
 
 			.hospital-info-content {
 				display: flex;
 				flex-direction: column;
+				width: 100%;
 
 				.title {
 					display: flex;
-					justify-content: flex-start;
+					justify-content: space-between;
 					width: 100%;
 					padding-left: 1rem;
 					font-family: "Montserrat", sans-serif;
@@ -199,8 +202,21 @@
 					font-size: large;
 					gap: 5px;
 					align-items: center;
+
+					.svg-wrap {
+						padding-bottom: 0.5rem;
+					}
+					.title-text {
+						justify-content: flex-start;
+						display: flex;
+						text-align: left;
+						padding: 0 0.1rem;
+					}
 				}
 
+				.text-secondary-wrap {
+					display: flex;
+				}
 				.text-secondary {
 					display: flex;
 					justify-content: flex-start;
@@ -233,6 +249,7 @@
 		cursor: pointer;
 		position: relative;
 		width: 54px;
+    max-height: 21px;
 		display: flex;
 		justify-content: end;
 	}
