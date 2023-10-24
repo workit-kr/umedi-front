@@ -56,8 +56,8 @@ function Information() {
     }
 
     ImageTools.resize(file, {
-        width: 1500, // maximum width
-        height: 750 // maximum height
+			width: 750, // maximum width
+			height: 750 // maximum height
     }, function(blob, didItResize) {
 
       blobToBase64(blob)
@@ -74,7 +74,7 @@ function Information() {
 
       })
     });
-
+		event.target.value = null;
   }
 
 	const onAdditionalFileChange = (event) => {
@@ -86,7 +86,7 @@ function Information() {
     }
 
     ImageTools.resize(file, {
-        width: 1500, // maximum width
+        width: 750, // maximum width
         height: 750 // maximum height
     }, function(blob, didItResize) {
 
@@ -95,7 +95,7 @@ function Information() {
 				setAdditionalImages([...additionalImages, resizedFile]);
       })
     });
-
+		event.target.value = null;
   }
 
 	const blobToBase64 = (blob) => {
@@ -174,7 +174,6 @@ function Information() {
 												paddingLeft: '25px'
 											}
 										}}
-										labelId="email"
 										id="email"
 										fullWidth
 										placeholder="abc@email.com"
@@ -200,7 +199,6 @@ function Information() {
 												paddingLeft: '25px'
 											}
 										}}
-										labelId="Phone Number"
 										id="Phone Number"
 										fullWidth
 										placeholder="Your phone number"
@@ -226,7 +224,6 @@ function Information() {
 												<input
 													id="attach-file"
 													type="file"
-													capture="camera"
 													accept="image/*"
 													ref={fileInput}
 													style={{ display: 'none' }}
@@ -246,7 +243,7 @@ function Information() {
 															<img  className="image" src={insuranceImages[val]} alt={`insurance-${idx}`} />
 														</div>
 													</div>
-													) : <div className="image-button"></div>
+													) : <div key={idx} className="image-button"></div>
 												))
 											}
 										</div>
@@ -261,9 +258,8 @@ function Information() {
 											<button className="image-button" onClick={onAdditionalCameraIconClicked}>
 												<i className='fas fa-camera fa-lg'></i>
 												<input
-													id="attach-file"
+													id="attach-additional-file"
 													type="file"
-													capture="camera"
 													accept="image/*"
 													ref={additionalFileInput}
 													style={{ display: 'none' }}
@@ -283,7 +279,7 @@ function Information() {
 													<img  className="image" src={additionalImages[val]} alt={`insurance-${idx}`} />
 														</div>
 													</div>
-													) : <div className="image-button"></div>
+													) : <div key={idx} className="image-button"></div>
 												))
 											}
 										</div>

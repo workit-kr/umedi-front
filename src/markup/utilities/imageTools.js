@@ -25,7 +25,7 @@ export default class ImageTools {
       if (typeof maxDimensions === 'function') {
           callback = maxDimensions;
           maxDimensions = {
-              width: 1500,
+              width: 750,
               height: 750
           };
         }
