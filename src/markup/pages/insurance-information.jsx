@@ -161,6 +161,7 @@ function InsuranceInformation() {
 												}
 											}} 
 											value={value} 
+											maxDate={dayjs(new Date())}
 											onChange={(newValue) => setValue(newValue)} 
 											format="YYYY-MM-DD"
 											slotProps={{
