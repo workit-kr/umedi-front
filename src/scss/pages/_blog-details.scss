@@ -2063,17 +2063,26 @@ blockquote {
 }
 
 @media (min-width: 575px) {
-	.schedule-container, .condition-container {
+	.schedule-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 18px 10px;
+	}
+
+	.condition-container {
 		flex: 0 0 auto;
-		width: 540px;
+		max-width: 540px;
 		width: 100%;
 	}
 }
 
 @media (max-width: 575px) {
 	.schedule-container {
-		flex: 0 0 auto;
-    width: 380px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 18px 10px;
 	}
 }
 
