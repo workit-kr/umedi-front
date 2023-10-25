@@ -23,7 +23,7 @@ function Complete() {
 		if (Object.keys(bookingObject).length === 0) {
 			navigate("/main");
 		} else {
-			// bookAppointment();
+			bookAppointment();
 		}
 	}, []);
 
