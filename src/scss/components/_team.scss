@@ -167,6 +167,8 @@
 	flex-direction: row;
 	justify-content: space-between;
 	cursor: pointer;
+	min-width: calc(100% - 60px);
+	max-height: 150px;
 
 	&:hover {
 		transform: translate3D(0,-1px,0) scale(1.00); /* move up slightly and zoom in */

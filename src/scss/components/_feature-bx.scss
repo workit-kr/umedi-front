@@ -229,6 +229,8 @@
 
 .condition {
 	margin: 5px 15px;
+	min-width: calc(100% - 30px);
+	width: auto !important;
 }
 
 // PLACE ICON WITH BOX

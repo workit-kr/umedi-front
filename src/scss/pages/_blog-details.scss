@@ -2066,6 +2066,7 @@ blockquote {
 	.schedule-container, .condition-container {
 		flex: 0 0 auto;
 		width: 540px;
+		width: 100%;
 	}
 }
 
@@ -2076,3 +2077,7 @@ blockquote {
 	}
 }
 
+.condition-container {
+	width: 100%;
+
+}

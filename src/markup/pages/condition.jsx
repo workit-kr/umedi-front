@@ -138,11 +138,9 @@ function Condition(){
 									}
 									{
 										!loading && isMatched && filteredConditionList.length > 0 && filteredConditionList.map((condition, idx) => (
-											<div className="mb-10" key={idx} onClick={() => handleConditionClicked(condition)}>
-												<div className="feature-container feature-bx1 feature4 condition">
-													<div className="icon-content">
-														<h4 className="ttr-title">{condition.name}</h4>
-													</div>
+											<div className="feature-container feature-bx1 feature4 condition" key={idx} onClick={() => handleConditionClicked(condition)}>
+												<div className="icon-content">
+													<h4 className="ttr-title">{condition.name}</h4>
 												</div>
 											</div>
 											)
